@@ -1,0 +1,29 @@
+//inserir departamento - POST na url localhost:8080/api/departamento
+{
+"nome": "Vendas"
+}
+//buscar todos os setores - get na url
+localhost:8080/api/departamento/all
+
+//atualizar departamento - POST em localhost:8080/api/departamento
+// de um id de departamento existente, trocando o valor do nome 
+{
+	"id": 1,
+	"nome": "Jurid"
+} 
+
+
+//inserir funcionário - POST na url 
+{
+	"cpf": 555,
+	"nome": "Joao",
+	"departamento": {
+		"id": 1
+	}
+}
+
+//buscar funcionario por cpf - HTTP GET na url localhost:8080/api/funcionario/555
+onde 555 é o cpf de um usuario existente
+  
+//delete funcionario - HTTP DELETE na URL localhost:8080/api/funcionario/555
+onde 555 é o cpf do usuário
