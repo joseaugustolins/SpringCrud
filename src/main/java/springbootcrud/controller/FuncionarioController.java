@@ -58,6 +58,21 @@ public class FuncionarioController {
 		return new ResponseEntity<Funcionario>(funcionario, HttpStatus.OK);
 	}
 	
+    @PostMapping("/update/{id}")
+    public ResponseEntity updateFuncionario(@RequestBody @Valid Funcionario funcionario, BindingResult result) {
+    	if(result.hasErrors()){
+            Map<String, String> errorMap = new HashMap<>();
+
+            for(FieldError error: result.getFieldErrors()){
+                errorMap.put(error.getField(), error.getDefaultMessage());
+            }
+            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
+        }
+        funcionarioService.saveOrUpdate(funcionario);
+        return new ResponseEntity<Funcionario>(funcionario, HttpStatus.OK);
+        
+    }
+	
 	@DeleteMapping("/{cpf}")
 	public ResponseEntity<?> deleteAluno(@PathVariable Long cpf){
 		funcionarioService.delete(cpf);
