@@ -11,8 +11,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,6 +27,7 @@ import springbootcrud.modelo.Departamento;
 //@Controller //caso se queira usar web
 @CrossOrigin //permite acessar de requisições externas
 
+
 public class DepartamentoController {
      
 	@Autowired
@@ -31,8 +35,7 @@ public class DepartamentoController {
 	
 	
 	@PostMapping("")
-    public ResponseEntity<?> addDepartamento(@Valid @RequestBody Departamento departamento, BindingResult result){
-		System.out.println("Testar");
+    public ResponseEntity<?> addDepartamento(@Valid @RequestBody Departamento departamento, BindingResult result){		
         if(result.hasErrors()){
             Map<String, String> errorMap = new HashMap<>();
 
@@ -50,4 +53,25 @@ public class DepartamentoController {
 		return departamentoService.findAll();
 	} 
     
+	@GetMapping("/{id}")
+	public ResponseEntity<Departamento> getFuncionarioById(@PathVariable Integer id){
+		Departamento departamento = departamentoService.findById(id);
+		return new ResponseEntity<Departamento>(departamento, HttpStatus.OK);
+	}
+	
+	@PutMapping("/{id}")
+	public Departamento updateDepartamento(@RequestBody Departamento departamento, @PathVariable Integer id) {
+		Departamento dep = departamentoService.findById(id);
+		dep.setNome(departamento.getNome());
+		return departamentoService.saveOrUpdate(dep);
+	}
+	
+	@DeleteMapping("/{id}")
+	public ResponseEntity<?> deleteDepartamento(@PathVariable Integer id){
+		System.out.println("deletando");
+		departamentoService.delete(id);
+		return new ResponseEntity<String> ( "Departamento deletado", HttpStatus.OK);
+	}
+	
+
 }

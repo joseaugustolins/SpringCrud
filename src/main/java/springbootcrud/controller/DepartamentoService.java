@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import springbootcrud.modelo.Departamento;
 import springbootcrud.modelo.DepartamentoRepository;
 
+
 @Service
 public class DepartamentoService {
 
@@ -21,8 +22,8 @@ public class DepartamentoService {
 	}
 	
 	public Departamento findById(Integer id) {
-		//return departamentoRepository.findById(id);
-		return null;
+		Departamento departamento = departamentoRepository.findById(id).get();
+		return departamento;
 	}
 	
 	public void delete(Integer id) {

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -58,23 +59,15 @@ public class FuncionarioController {
 		return new ResponseEntity<Funcionario>(funcionario, HttpStatus.OK);
 	}
 	
-    @PostMapping("/update/{id}")
-    public ResponseEntity updateFuncionario(@RequestBody @Valid Funcionario funcionario, BindingResult result) {
-    	if(result.hasErrors()){
-            Map<String, String> errorMap = new HashMap<>();
-
-            for(FieldError error: result.getFieldErrors()){
-                errorMap.put(error.getField(), error.getDefaultMessage());
-            }
-            return new ResponseEntity<Map<String, String>>(errorMap, HttpStatus.BAD_REQUEST);
-        }
-        funcionarioService.saveOrUpdate(funcionario);
-        return new ResponseEntity<Funcionario>(funcionario, HttpStatus.OK);
-        
-    }
+	@PutMapping("/{id}")
+	public Funcionario updateDepartamento(@RequestBody Funcionario funcionario, @PathVariable Long cpf) {
+		return funcionarioService.saveOrUpdate(funcionario);
+	}
+	
+	
 	
 	@DeleteMapping("/{cpf}")
-	public ResponseEntity<?> deleteAluno(@PathVariable Long cpf){
+	public ResponseEntity<?> deleteFuncionario(@PathVariable Long cpf){
 		funcionarioService.delete(cpf);
 		return new ResponseEntity<String> ( "Funcionário deletado", HttpStatus.OK);
 	}
