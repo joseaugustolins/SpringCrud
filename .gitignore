@@ -5,3 +5,10 @@
 bin/
 .idea/
 SpringCrud.iml
+.idea/misc.xml
+.idea/modules.xml
+.vscode
+build/
+gradle/
+gradlew
+gradlew.bat
