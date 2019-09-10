@@ -8,6 +8,13 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  api_springcrud:
+    image: springcrudjdk8:latest
+    ports:
+      - 8080:8080
+    environment:
+      db: db_postgres
+
 volumes:
   postgres_data:
     external: true
