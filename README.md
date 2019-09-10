@@ -5,7 +5,7 @@ Crud com Spring
 - Docker (verificar versão)
 - Docker-compose (verificar versão)
 
-##Steps
+### Steps
 - Criar volume (referenciado no docker-compose.yml), comando: <br> 
 `docker volume create postgres_data`
 - Gerar build do projeto com o gradle, comando: <br>
@@ -15,7 +15,7 @@ Crud com Spring
 - Levantar container <br>
 `docker-compose up -d`
 
-###Outros
+### Outros
 - Documentacao swagger em: http://localhost:8080/swagger-ui.htm
 - Inserir departamento - POST na url localhost:8080/api/departamento
 `{
