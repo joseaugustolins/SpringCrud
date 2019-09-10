@@ -1,9 +1,9 @@
 ### SpringCrud - José Augusto
 Crud com Spring
-### Requisitos
-- Gradle (Verificar Versão)
-- Docker (verificar Versão)
-- Docker-compose (verificar versão)
+### Requisitos (Verificar Versões)
+- Gradle 
+- Docker
+- Docker-compose
 
 ### Steps
 - Criar volume (referenciado no docker-compose.yml), comando: <br> 
@@ -24,10 +24,9 @@ Crud com Spring
 
 - Buscar todos os Departamentos - get na url localhost:8080/api/departamento/all
 
-- Atualizar departamento - POST em localhost:8080/api/departamento de um id de departamento existente, trocando o valor do nome 
+- Atualizar departamento - PUT em localhost:8080/api/departamento/1 de um id de departamento existente, trocando o valor do nome, onde 1 é o valor de um departamento existente 
 `{
-	"id": 1,
-	"nome": "Jurid"
+	"nome": "Jurisasasasad"
 }` 
 
 - Inserir funcionário - POST na url localhost:8080/api/funcionario
