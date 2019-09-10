@@ -1,8 +1,8 @@
 ### SpringCrud - José Augusto
 Crud com Spring
 ### Requisitos
-- Gradle
-- Docker (verificar versão)
+- Gradle (Verificar Versão)
+- Docker (verificar Versão)
 - Docker-compose (verificar versão)
 
 ### Steps
