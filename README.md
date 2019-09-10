@@ -1,52 +1,44 @@
-# SpringCrud
+### SpringCrud - José Augusto
 Crud com Spring
-//instalar ultima versao do docker
-//instalar ultimar versao do docker-compose
+###Requisitos
+- Gradle
+- Docker (verificar versão)
+- Docker-compose (verificar versão)
 
-//criar volume (referenciado no docker-compose.yml)
-docker volume create postgres_data
+###Steps
+- Criar volume (referenciado no docker-compose.yml), comando: <br> 
+`docker volume create postgres_data`
+- Gerar build do projeto com o gradle, comando: <br>
+`gradle build`
+- Com o arquivo Dockerfile criado, gerar imagem (o nome da imagem, springcrudjdk8, deve ser referenciado no docker-compose.yml), comando: <br>
+`docker build . -t springcrudjdk8`
+- Levantar container <br>
+`docker-compose up -d`
 
-//gerar build do projeto com o gradle
-gradle build
-
-//com o arquivo Dockerfile criado, gerar imagem (o nome da imagem, springcrudjdk8,
-//deve ser referenciado no docker-compose.yml
-docker build . -t springcrudjdk8
-
-//levantar container
-docker-compose up -d
-
-documentacao swagger em: http://localhost:8080/swagger-ui.htm
-
-//inserir departamento - POST na url localhost:8080/api/departamento
-{
+###Outros
+- Documentacao swagger em: http://localhost:8080/swagger-ui.htm
+- Inserir departamento - POST na url localhost:8080/api/departamento
+`{
 "nome": "Vendas"
-}
+}`
 
+- Buscar todos os Departamentos - get na url localhost:8080/api/departamento/all
 
-//buscar todos os setores - get na url
-localhost:8080/api/departamento/all
-
-
-//atualizar departamento - POST em localhost:8080/api/departamento de um id de departamento existente, trocando o valor do nome 
-{
+- Atualizar departamento - POST em localhost:8080/api/departamento de um id de departamento existente, trocando o valor do nome 
+`{
 	"id": 1,
 	"nome": "Jurid"
-} 
+}` 
 
-//inserir funcionário - POST na url 
-{
+- Inserir funcionário - POST na url localhost:8080/api/funcionario
+`{
 	"cpf": 555,
 	"nome": "Joao",
 	"departamento": {
 		"id": 1
 	}
-}
+}`
 
-//buscar funcionario por cpf - HTTP GET na URL: 
-localhost:8080/api/funcionario/555
-onde 555 é o cpf de um usuario existente
+- Buscar funcionario por cpf - HTTP GET na URL: localhost:8080/api/funcionario/555  ; onde 555 é o cpf de um usuario existente
   
-//delete funcionario - HTTP DELETE na URL: 
-localhost:8080/api/funcionario/555
-onde 555 é o cpf do usuário
+- delete funcionario - HTTP DELETE na URL: localhost:8080/api/funcionario/555  ; onde 555 é o cpf do usuário
