@@ -1,11 +1,13 @@
 ### SpringCrud - José Augusto
 Crud com Spring
 ### Requisitos (Verificar Versões)
-- Gradle 
+- GIT
 - Docker
 - Docker-compose
 
 ### Steps
+- Baixar projeto do github
+`git clone https://github.com/joseaugustolins/SpringCrud.git´
 - Criar volume (referenciado no docker-compose.yml), comando: <br> 
 `docker volume create postgres_data`
 - Gerar build do projeto com o gradle, comando: <br>
