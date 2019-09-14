@@ -7,9 +7,9 @@ Crud com Spring
 
 ### Steps
 - Baixar projeto do github
-`git clone https://github.com/joseaugustolins/SpringCrud.git´
-- Criar volume (referenciado no docker-compose.yml), comando: <br> 
-`docker volume create postgres_data`
+`git clone https://github.com/joseaugustolins/SpringCrud.git`
+- Criar volume (referenciado no docker-compose.yml), comando:
+`sudo docker volume create postgres_data`
 - Gerar build do projeto com o gradle, comando: <br>
 `gradle build`
 - Com o arquivo Dockerfile criado, gerar imagem (o nome da imagem, springcrudjdk8, deve ser referenciado no docker-compose.yml), comando: <br>
