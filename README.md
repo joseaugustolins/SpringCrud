@@ -2,6 +2,7 @@
 Crud com Spring
 ### Requisitos (Verificar Versões)
 - GIT
+- Gradle
 - Docker
 - Docker-compose
 

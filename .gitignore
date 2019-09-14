@@ -1,3 +1,5 @@
+.classpath
+.gradle/
 .project
 .settings/
 bin/
@@ -7,4 +9,7 @@ SpringCrud.iml
 .idea/modules.xml
 .vscode
 build/
+gradle/
+gradlew
+gradlew.bat
 .idea/gradle.xml
