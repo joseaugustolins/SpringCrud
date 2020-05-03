@@ -18,6 +18,7 @@ Crud com Spring
 `docker-compose up -d`
 - Gerar build do projeto com o gradle, comando: <br>
 `./gradlew build`
+-- Importante mencionar que o gradle só vai rodar
 
 ### Outros
 - Documentacao swagger em: http://localhost:8080/swagger-ui.htm
