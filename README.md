@@ -3,6 +3,7 @@ Crud com Spring
 ### Requisitos (Verificar Versões)
 - GIT
 - Gradle
+- Java 11 (verificar qual a versão corrente do java na sua máquina)
 - Docker
 - Docker-compose
 
@@ -11,12 +12,12 @@ Crud com Spring
 `git clone https://github.com/joseaugustolins/SpringCrud.git`
 - Criar volume (referenciado no docker-compose.yml), comando:
 `sudo docker volume create postgres_data`
-- Gerar build do projeto com o gradle, comando: <br>
-`gradle build`
 - Com o arquivo Dockerfile criado, gerar imagem (o nome da imagem, springcrudjdk8, deve ser referenciado no docker-compose.yml), comando: <br>
 `docker build . -t springcrudjdk8`
 - Levantar container <br>
 `docker-compose up -d`
+- Gerar build do projeto com o gradle, comando: <br>
+`./gradlew build`
 
 ### Outros
 - Documentacao swagger em: http://localhost:8080/swagger-ui.htm
