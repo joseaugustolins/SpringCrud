@@ -3,7 +3,7 @@ Crud com Spring
 ### Requisitos (Verificar Versões)
 - GIT
 - Gradle
-- Java 11 (verificar qual a versão corrente do java na sua máquina)
+- Java 8 (verificar qual a versão corrente do java na sua máquina)
 - Docker
 - Docker-compose
 
@@ -12,7 +12,7 @@ Crud com Spring
 `git clone https://github.com/joseaugustolins/SpringCrud.git`
 - Criar volume (referenciado no docker-compose.yml), comando:
 `sudo docker volume create postgres_data`
-- Gerar build do projeto com o gradle (Importante mencionar que o gradle só vai rodar se o banco tiver levantado.): <br>
+- Gerar build do projeto com o gradle (Importante mencionar que o gradle só vai rodar se o banco tiver levantado e verificar a sua versão do java.): <br>
 `./gradlew build`
 
 - Com o arquivo Dockerfile criado, gerar imagem (o nome da imagem, springcrudjdk8, deve ser referenciado no docker-compose.yml), comando: <br>
