@@ -20,20 +20,22 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import springbootcrud.modelo.Departamento;
 
 @RestController
 @RequestMapping("/api/departamento")
 //@Controller //caso se queira usar web
 @CrossOrigin //permite acessar de requisições externas
-
+@Api(value="api/departamento")
 
 public class DepartamentoController {
      
 	@Autowired
 	private DepartamentoService departamentoService;
 	
-	
+	@ApiOperation(value="Post Departamento")
 	@PostMapping("")
     public ResponseEntity<?> addDepartamento(@Valid @RequestBody Departamento departamento, BindingResult result){		
         if(result.hasErrors()){
@@ -48,17 +50,22 @@ public class DepartamentoController {
         return new ResponseEntity<Departamento>(novoDepartamento, HttpStatus.CREATED);
     }
 	
+	
+	@ApiOperation(value="Find All Departamento")
 	@GetMapping("/all")
 	public Iterable<Departamento> findAll(){
+		System.out.println("teste");
 		return departamentoService.findAll();
 	} 
     
+	@ApiOperation(value="GetById Departamento")
 	@GetMapping("/{id}")
 	public ResponseEntity<Departamento> getFuncionarioById(@PathVariable Integer id){
 		Departamento departamento = departamentoService.findById(id);
 		return new ResponseEntity<Departamento>(departamento, HttpStatus.OK);
 	}
 	
+	@ApiOperation(value="Put Departamento")
 	@PutMapping("/{id}")
 	public Departamento updateDepartamento(@RequestBody Departamento departamento, @PathVariable Integer id) {
 		Departamento dep = departamentoService.findById(id);
@@ -66,6 +73,7 @@ public class DepartamentoController {
 		return departamentoService.saveOrUpdate(dep);
 	}
 	
+	@ApiOperation(value="Delete Departamento")
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deleteDepartamento(@PathVariable Integer id){
 		System.out.println("deletando");

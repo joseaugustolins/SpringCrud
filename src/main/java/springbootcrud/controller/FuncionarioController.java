@@ -20,19 +20,21 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import springbootcrud.modelo.Funcionario;
 
 @RestController
 @RequestMapping("/api/funcionario")
 //@Controller //caso se queira usar web
 @CrossOrigin //permite acessar de requisições externas
-
+@Api(value="api/funcionario")
 public class FuncionarioController {
      
 	@Autowired
 	private FuncionarioService funcionarioService;
 	
-	
+	@ApiOperation(value="Post Funcionario")
 	@PostMapping("")
     public ResponseEntity<?> addFuncionario(@Valid @RequestBody Funcionario funcionario, BindingResult result){
 		System.out.println("Testar");
@@ -48,24 +50,27 @@ public class FuncionarioController {
         return new ResponseEntity<Funcionario>(novoFuncionario, HttpStatus.CREATED);
     }
 	
+	@ApiOperation(value="Find All Funcionario")
 	@GetMapping("/all")
 	public Iterable<Funcionario> findAll(){
 		return funcionarioService.findAll();
 	} 
 	
+	@ApiOperation(value="GetById Funcionario")
 	@GetMapping("/{cpf}")
 	public ResponseEntity<Funcionario> getFuncionarioByCpf(@PathVariable Long cpf){
 		Funcionario funcionario = funcionarioService.findByCpf(cpf);
 		return new ResponseEntity<Funcionario>(funcionario, HttpStatus.OK);
 	}
 	
+	@ApiOperation(value="Put Funcionario")
 	@PutMapping("/{id}")
 	public Funcionario updateDepartamento(@RequestBody Funcionario funcionario, @PathVariable Long cpf) {
 		return funcionarioService.saveOrUpdate(funcionario);
 	}
 	
 	
-	
+	@ApiOperation(value="Delete Funcionario")
 	@DeleteMapping("/{cpf}")
 	public ResponseEntity<?> deleteFuncionario(@PathVariable Long cpf){
 		funcionarioService.delete(cpf);
