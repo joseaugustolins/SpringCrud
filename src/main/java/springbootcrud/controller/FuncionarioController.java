@@ -51,7 +51,7 @@ public class FuncionarioController {
     }
 	
 	@ApiOperation(value="Find All Funcionario")
-	@GetMapping("/all")
+	@GetMapping("/")
 	public Iterable<Funcionario> findAll(){
 		return funcionarioService.findAll();
 	} 

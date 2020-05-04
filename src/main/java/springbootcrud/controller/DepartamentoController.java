@@ -52,7 +52,7 @@ public class DepartamentoController {
 	
 	
 	@ApiOperation(value="Find All Departamento")
-	@GetMapping("/all")
+	@GetMapping("/")
 	public Iterable<Departamento> findAll(){
 		System.out.println("teste");
 		return departamentoService.findAll();
