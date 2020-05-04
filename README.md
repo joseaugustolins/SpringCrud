@@ -27,7 +27,7 @@ Crud com Spring
 "nome": "Vendas"
 }`
 
-- Buscar todos os Departamentos - get na url localhost:8080/api/departamento/all
+- Buscar todos os Departamentos - get na url localhost:8080/api/departamento/
 
 - Atualizar departamento - PUT em localhost:8080/api/departamento/1 de um id de departamento existente, trocando o valor do nome, onde 1 é o valor de um departamento existente 
 `{
